@@ -1,0 +1,122 @@
+body {
+    background-color: #fce4ec; /* हल्का गुलाबी पृष्ठभूमि */
+    font-family: 'Arial', sans-serif;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    margin: 0;
+    overflow: hidden; /* ताकि दिल स्क्रीन से बाहर न जाएं */
+}
+
+.container {
+    text-align: center;
+    background-color: rgba(255, 255, 255, 0.9);
+    padding: 40px;
+    border-radius: 15px;
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.2);
+    z-index: 10;
+}
+
+.proposal-text {
+    font-size: 2em;
+    color: #e91e63; /* गहरा गुलाबी टेक्स्ट */
+    margin-bottom: 30px;
+    overflow: hidden; /* टाइपिंग इफ़ेक्ट के लिए ज़रूरी */
+    border-right: .15em solid #e91e63; /* कर्सर इफ़ेक्ट */
+    white-space: nowrap; /* टेक्स्ट को एक ही लाइन में रखें */
+    letter-spacing: .05em;
+    animation: 
+        typing 4s steps(30, end) forwards, /* टेक्स्ट धीरे-धीरे दिखाई देगा */
+        blink-caret .75s step-end infinite;
+}
+
+/* टाइपिंग इफ़ेक्ट के लिए @keyframes */
+@keyframes typing {
+  from { width: 0 }
+  to { width: 100% }
+}
+
+/* कर्सर ब्लिंक करने का इफ़ेक्ट */
+@keyframes blink-caret {
+  from, to { border-color: transparent }
+  50% { border-color: #e91e63; }
+}
+
+button {
+    background-color: #e91e63;
+    color: white;
+    border: none;
+    padding: 15px 30px;
+    margin: 10px;
+    font-size: 1.2em;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: background-color 0.3s ease, transform 0.1s;
+}
+
+#yesButton:hover {
+    background-color: #d81b60;
+    transform: scale(1.05); /* हॉवर पर थोड़ा बड़ा हो जाए */
+}
+
+#noButton {
+    background-color: #ff9800; /* 'नहीं' के लिए नारंगी रंग */
+}
+
+#noButton:hover {
+    background-color: #fb8c00;
+}
+
+#message {
+    font-size: 1.5em;
+    color: #4CAF50;
+    margin-top: 20px;
+    opacity: 0;
+    transition: opacity 1s;
+}
+
+.hidden {
+    opacity: 0;
+}
+
+#message:not(.hidden) {
+    opacity: 1;
+}
+
+/* दिल (Hearts) का एनिमेशन */
+.heart {
+    position: absolute;
+    width: 20px;
+    height: 20px;
+    background-color: #e91e63;
+    transform: rotate(-45deg);
+    animation: float-up 6s infinite ease-in;
+    z-index: 1;
+}
+
+.heart:before,
+.heart:after {
+    content: "";
+    position: absolute;
+    width: 20px;
+    height: 20px;
+    border-radius: 50%;
+    background-color: #e91e63;
+}
+
+.heart:before {
+    top: -10px;
+    left: 0;
+}
+
+.heart:after {
+    left: 10px;
+    top: 0;
+}
+
+@keyframes float-up {
+    0% { transform: translateY(0) rotate(-45deg) scale(0.5); opacity: 0; }
+    50% { opacity: 1; }
+    100% { transform: translateY(-1000px) rotate(-45deg) scale(1.5); opacity: 0; }
+}

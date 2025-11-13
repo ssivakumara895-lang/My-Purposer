@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>A Special Question for You</title>
+    <link rel="stylesheet" href="style.css"> </head>
+<body>
+    <div class="container">
+        <h1 class="proposal-text">
+            क्या तुम मेरी ज़िंदगी का हिस्सा बनोगी?
+        </h1>
+
+        <button id="yesButton" onclick="handleYes()">हाँ</button>
+        <button id="noButton" onclick="handleNo()">नहीं</button>
+        
+        <p id="message" class="hidden">ज़िंदगी भर साथ रहने के लिए धन्यवाद! ❤️</p>
+    </div>
+    <script>
+        function handleYes() {
+            document.getElementById('yesButton').style.backgroundColor = '#4CAF50';
+            document.getElementById('message').innerText = 'ज़िंदगी भर साथ रहने के लिए धन्यवाद! ❤️';
+            document.getElementById('message').classList.remove('hidden');
+            document.getElementById('noButton').style.display = 'none'; // 'नहीं' बटन हटा दें
+        }
+
+        function handleNo() {
+            alert('कोई बात नहीं, लेकिन दोस्ती हमेशा रहेगी! 😊');
+        }
+    </script>
+</body>
+</htm>
+<script>
+    // ... (ऊपर वाला handleYes और handleNo फ़ंक्शन यहीं रहेगा) ...
+
+    // दिलों का एनिमेशन जोड़ने के लिए
+    const body = document.body;
+    const heartsCount = 10; 
+
+    for (let i = 0; i < heartsCount; i++) {
+        const heart = document.createElement('div');
+        heart.classList.add('heart');
+        
+        // दिलों को रैंडम जगह और देरी से शुरू करने के लिए
+        heart.style.left = `${Math.random() * 100}vw`;
+        heart.style.animationDelay = `${Math.random() * 6}s`;
+        heart.style.animationDuration = `${5 + Math.random() * 5}s`;
+        
+        body.appendChild(heart);
+    }
+</script>
